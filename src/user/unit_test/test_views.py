@@ -60,7 +60,7 @@ def test_login_failed(user_data, user, client):
 
 
 @pytest.mark.django_db
-def test_user_update(user_data, user, client):
+def test_user_update(user, client):
     url = reverse('user-detail', args=[user.id])
     response = client.put(url, {
         'email': 'p.laroche@example.com',
@@ -69,8 +69,14 @@ def test_user_update(user_data, user, client):
         'role': 'sale',
         'password': 'test_password',
     }, format='json')
-    assert response.status_code ==status.HTTP_200_OK
+    assert response.status_code == status.HTTP_200_OK
     assert response.data['first_name'] == 'Paula'
 
+
+@pytest.mark.django_db
+def test_user_delete(user, client):
+    url = reverse('user-detail', args=[user.id])
+    response = client.delete(url)
+    assert response.status_code == status.HTTP_204_NO_CONTENT
 
 
