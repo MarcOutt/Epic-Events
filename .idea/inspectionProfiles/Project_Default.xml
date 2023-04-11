@@ -1,0 +1,85 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="1">
+            <item index="0" class="java.lang.String" itemvalue="href" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="6">
+            <item index="0" class="java.lang.String" itemvalue="Werkzeug" />
+            <item index="1" class="java.lang.String" itemvalue="MarkupSafe" />
+            <item index="2" class="java.lang.String" itemvalue="itsdangerous" />
+            <item index="3" class="java.lang.String" itemvalue="click" />
+            <item index="4" class="java.lang.String" itemvalue="Jinja2" />
+            <item index="5" class="java.lang.String" itemvalue="Flask" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N802" />
+          <option value="N806" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyShadowingBuiltinsInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredNames">
+        <list>
+          <option value="round" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="src.mon_site.settings.BASE_DIR" />
+          <option value="sys.defaultencoding" />
+          <option value="str.sort_list_ranking" />
+          <option value="str.self" />
+          <option value="int.*" />
+          <option value="bool.__getitem__" />
+          <option value="list.*" />
+          <option value="tuple.append" />
+          <option value="blog.models.Ticket.*" />
+          <option value="blog.models.Review.*" />
+          <option value="blog.models.UsersFollows.*" />
+          <option value="shop.models.Product.*" />
+          <option value="shop.models.Category.*" />
+          <option value="TrackingProblems.models.Users.objects" />
+          <option value="Monitoring.models.Project.*" />
+          <option value="monitoring.projects.models.Project.*" />
+          <option value="monitoring.contributors.models.Contributor.*" />
+          <option value="title" />
+          <option value="description" />
+          <option value="type" />
+          <option value="author_user" />
+          <option value="permission_classes" />
+          <option value="monitoring.Issues.models.Issue.objects" />
+          <option value="monitoring.Issues.models.Issue.DoesNotExist" />
+          <option value="user" />
+          <option value="permission" />
+          <option value="role" />
+          <option value="monitoring.comments.models.Comment.objects" />
+          <option value="monitoring.comments.models.Comment.DoesNotExist" />
+          <option value="user.models.CustomUser.DoesNotExist" />
+          <option value="id" />
+          <option value="first_name" />
+          <option value="last_name" />
+          <option value="email" />
+          <option value="password" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
