@@ -3,7 +3,7 @@ from django.db import models
 
 
 class MyUserManager(BaseUserManager):
-    def create_user(self, email, first_name, last_name, password=None):
+    def create_user(self, email, first_name, last_name, role, password=None):
         if not email:
             raise ValueError("Vous devez entrer un email")
         if not first_name:
@@ -13,14 +13,14 @@ class MyUserManager(BaseUserManager):
         if not role:
             raise ValueError("Vous devez entrer un rôle")
 
-        user = self.model(email=self.normalize_email(email), first_name=first_name, last_name=last_name)
+        user = self.model(email=self.normalize_email(email), first_name=first_name, last_name=last_name, role=role)
         user.set_password(password)
         user.save()
         return user
 
-    def create_superuser(self, email, first_name, last_name, password=None):
+    def create_superuser(self, email, first_name, last_name, role, password=None):
         user = self.create_user(email=self.normalize_email(email), first_name=first_name, last_name=last_name,
-                                password=password)
+                                role=role, password=password)
         user.is_admin = True
         user.is_staff = True
         user.save()
