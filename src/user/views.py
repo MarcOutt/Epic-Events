@@ -1,3 +1,4 @@
+from crm.permissions import IsManagement
 from django.contrib.auth import authenticate, login
 from rest_framework import status, viewsets
 from rest_framework.authtoken.models import Token
@@ -25,7 +26,7 @@ class LoginView(APIView):
 
 class UserViewSet(viewsets.ModelViewSet):
     """Endpoint Api for user management(CRUD)"""
-
+    permission_classes = [IsManagement]
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
 

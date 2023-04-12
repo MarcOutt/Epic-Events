@@ -15,3 +15,4 @@ class ContractSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Le contrat ne peut pas être créé car le status n'est pas validé.")
 
         return Contract.objects.create(**validated_data)
+

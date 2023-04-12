@@ -9,7 +9,7 @@ class Event(models.Model):
     contract = models.ForeignKey(to=Contract, on_delete=models.CASCADE)
     date_created = models.DateTimeField(auto_now_add=True)
     date_update = models.DateTimeField(auto_now_add=True)
-    support_contact = models.ForeignKey(to=CustomUser, on_delete=models.PROTECT)
+    support_contact = models.ForeignKey(to=CustomUser, on_delete=models.PROTECT, limit_choices_to={'role': 'support'})
     event_ended = models.BooleanField(False)
     attendees = models.IntegerField()
     event_date = models.DateTimeField(editable=True)

@@ -1,3 +1,4 @@
+from contract.models import Contract
 from event.models import Event
 from rest_framework import serializers
 
@@ -10,6 +11,9 @@ class EventSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         customer_id = self.context['view'].kwargs['customer_id']
         contract_id = self.context['view'].kwargs['contract_id']
+        contract = Contract.objects.get(id=contract_id)
+        if not contract.status:
+            raise serializers.ValidationError("Impossible de créer un évènement car le contrat n'a pas été signé")
         validated_data['customer_id'] = customer_id
         validated_data['contract_id'] = contract_id
         return Event.objects.create(**validated_data)

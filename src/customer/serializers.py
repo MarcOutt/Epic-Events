@@ -17,3 +17,4 @@ class CustomerSerializer(serializers.ModelSerializer):
                                        company_name=validated_data['company_name'],
                                        sales_contact=validated_data['sales_contact']
                                        )
+
