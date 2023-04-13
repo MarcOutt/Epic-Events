@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 
 class CustomerSerializer(serializers.ModelSerializer):
+    """Serializer for the customer"""
     class Meta:
         model = Customer
         fields = ('id', 'email', 'first_name', 'last_name', 'phone', 'mobile', 'company_name', 'date_created',

@@ -3,6 +3,7 @@ from rest_framework import serializers
 
 
 class ContractSerializer(serializers.ModelSerializer):
+    """Serializer for the contract"""
     class Meta:
         model = Contract
         fields = ('id', 'sales_contact', 'status', 'amount', 'payment_due')

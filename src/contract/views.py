@@ -7,7 +7,7 @@ from rest_framework import viewsets
 
 
 class ContractViewSet(viewsets.ModelViewSet):
-    """Endpoint Api for user management(CRUD)"""
+    """A viewset that provides CRUD operations for contract."""
     serializer_class = ContractSerializer
 
     def get_queryset(self):

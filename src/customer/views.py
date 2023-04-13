@@ -6,7 +6,7 @@ from rest_framework import viewsets
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
-    """Endpoint Api for user management(CRUD)"""
+    """A viewset that provides CRUD operations for customer."""
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
 

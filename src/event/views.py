@@ -6,7 +6,7 @@ from rest_framework import viewsets
 
 
 class EventViewSet(viewsets.ModelViewSet):
-    """Endpoint Api for user management(CRUD)"""
+    """A viewset that provides CRUD operations for event."""
     serializer_class = EventSerializer
 
     def get_queryset(self):

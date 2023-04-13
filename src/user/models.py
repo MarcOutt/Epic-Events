@@ -3,6 +3,7 @@ from django.db import models
 
 
 class MyUserManager(BaseUserManager):
+    """Manager for CustomUser model, which provides methods for creating normal and superuser."""
     def create_user(self, email, first_name, last_name, role, password=None):
         if not email:
             raise ValueError("Vous devez entrer un email")
@@ -30,6 +31,7 @@ class MyUserManager(BaseUserManager):
 
 
 class CustomUser(AbstractBaseUser):
+    """Custom user model, which inherits from the Django's AbstractBaseUser."""
 
     choice_role = [
         ('management', 'management'),
@@ -46,7 +48,7 @@ class CustomUser(AbstractBaseUser):
     is_admin = models.BooleanField(default=False)
 
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = ["first_name", "last_name"]
+    REQUIRED_FIELDS = ["first_name", "last_name", "role"]
 
     objects = MyUserManager()
 
