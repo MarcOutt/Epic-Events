@@ -18,3 +18,15 @@ class CustomerSerializer(serializers.ModelSerializer):
                                        sales_contact=validated_data['sales_contact']
                                        )
 
+    def update(self, instance, validated_data):
+        instance.email = validated_data.get('email', instance.email)
+        instance.first_name = validated_data.get('first_name', instance.first_name)
+        instance.last_name = validated_data.get('last_name', instance.last_name)
+        instance.phone = validated_data.get('phone', instance.phone)
+        instance.mobile = validated_data.get('mobile', instance.mobile)
+        instance.company_name = validated_data.get('company_name', instance.company_name)
+        instance.sales_contact = validated_data.get('sales_contact', instance.sales_contact)
+        instance.save()
+        return instance
+
+

@@ -14,6 +14,8 @@ class MyUserManager(BaseUserManager):
             raise ValueError("Vous devez entrer un rôle")
 
         user = self.model(email=self.normalize_email(email), first_name=first_name, last_name=last_name, role=role)
+        if role == 'management':
+            user.is_staff = True
         user.set_password(password)
         user.save()
         return user

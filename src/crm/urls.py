@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 from event.views import EventViewSet
 from rest_framework import routers
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from user.views import UserViewSet, LoginView
 
 router = routers.SimpleRouter()
@@ -15,6 +16,9 @@ router.register(r'customers/(?P<customer_id>[^/.]+)/contracts/(?P<contract_id>[^
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', LoginView.as_view(), name='login'),
+
+    path('', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh', TokenRefreshView.as_view(), name='refresh_token'),
+
     path('', include(router.urls))
 ]
