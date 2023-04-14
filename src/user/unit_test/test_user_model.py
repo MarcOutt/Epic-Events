@@ -1,6 +1,6 @@
 import pytest
 from user.models import CustomUser
-from fixtures import sale_user_data, superuser_data
+from user_fixtures import sale_user_data, superuser_data
 
 
 @pytest.mark.django_db

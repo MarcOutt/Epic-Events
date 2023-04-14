@@ -2,7 +2,7 @@
 import pytest
 from rest_framework import status
 from user.models import CustomUser
-from fixtures import client, management_user, sale_user, get_tokens_for_user
+from user_fixtures import client, management_user, sale_user, get_tokens_for_user
 
 
 @pytest.fixture
