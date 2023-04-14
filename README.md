@@ -35,7 +35,7 @@ Fonctionnalités de haut niveau requises :
     * Un droit de modification/d'accès pour tous les événements dont ils sont responsables.
 
 
-## Pré-requis
+## PRÉ-REQUIS
 -------------
 
 * Installer Python 3 : [Téléchargement Python 3](https://www.python.org/downloads/)
@@ -78,32 +78,32 @@ paul.cour@example.com
 francois.laporte@example.com  
 
 
-# Point de terminaison d'API  Méthode HTTP   URI
+# POINT DE TERMINAISON D'API  MÉTHODE HTTP  
 
 1. Création d'utilisateur POST http://127.0.0.1:8000//users/
 2. Récupérer la liste de tous les utilisateurs GET http://127.0.0.1:8000//users/
 3. Récupérer un utilisateur GET http://127.0.0.1:8000//users/{user_id}/
 4. Mettre à jour un utilisateur PATCH http://127.0.0.1:8000//users/{user_id}/
-5. Supprimer un utilisateur GET http://127.0.0.1:8000//users/{user_id}/
+5. Supprimer un utilisateur DELETE http://127.0.0.1:8000//users/{user_id}/
 6. Connexion de l'utilisateur POST http://127.0.0.1:8000/
 
 7. Création d'un client POST http://127.0.0.1:8000//customers/
 8. Récupérer la liste de tous les clients GET http://127.0.0.1:8000//customers/
 9. Récupérer un client GET http://127.0.0.1:8000//customers/{customers_id}/
-10. Mettre à jour un client PATCH http://127.0.0.1:8000//customers//{customers_id}/
-11. Supprimer un client GET http://127.0.0.1:8000//users/{customers_id}/
+10. Mettre à jour un client PUT http://127.0.0.1:8000//customers//{customers_id}/
+11. Supprimer un client DELETE http://127.0.0.1:8000//users/{customers_id}/
 
 12. Création d'un contrat lié à un client POST http://127.0.0.1:8000//customers/{customers_id}/contracts/
 13. Récupérer la liste de tous les contrats lié à un client GET http://127.0.0.1:8000//customers/{customers_id}/contracts/
 14. Récupérer un contrat GET http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/
 15. Mettre à jour un contrat PUT http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/
-16. Supprimer un contrat GET http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/
+16. Supprimer un contrat DELETE http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/
 
 17. Création d'un event lié à un contrat POST http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/events/
 18. Récupérer la liste de tous les events lié à un contrat GET http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/events/
 19. Récupérer un event GET http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/events/{event_id}/
 20. Mettre à jour un event PUT http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/events/{event_id}/
-21. Supprimer un event GET http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/events/{event_id}/
+21. Supprimer un event DELETE http://127.0.0.1:8000//customers/{customers_id}/contracts/{contract_id}/events/{event_id}/
 
 
 ## DOCUMENTATION API
