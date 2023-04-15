@@ -2,6 +2,7 @@ import pytest
 from customer.models import Customer
 from customer.unit_test.customer_fixtures import get_tokens_for_user, management_user, sale_user, support_user, client
 from rest_framework import status
+from user.models import CustomUser
 
 
 @pytest.mark.django_db
@@ -12,21 +13,24 @@ def test_get_customers(client, sale_user):
     assert response.status_code == status.HTTP_200_OK
 
 
-@pytest.mark.django_db
-def test_create_user_with_sale_user(client, sale_user):
+def test_delete_customer_with_sale_user(client, sale_user):
     refresh_token = get_tokens_for_user(sale_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
+    sales_contact = CustomUser.objects.create_user(email='p.bleu@example.com',
+                                                   first_name='Pierre',
+                                                   last_name='Bleu',
+                                                   role='sale',
+                                                   password='test_password')
     data = {'first_name': 'Pascal',
             'last_name': 'Martin',
             'email': 'p.martin@intel.com',
             'phone': '1234567890',
             'mobile': '0987654321',
             'company_name': 'Intel.',
-            'sales_contact': 1}
+            'sales_contact': sales_contact.id}
 
     response = client.post('/customers/', data=data)
-
     assert response.status_code == status.HTTP_201_CREATED
 
     customer = Customer.objects.get(email=data['email'])
@@ -36,22 +40,25 @@ def test_create_user_with_sale_user(client, sale_user):
 
 
 @pytest.mark.django_db
-def test_create_user_with_management_user(client, management_user, sale_user):
+def test_create_customer_with_management_user(client, management_user):
     refresh_token = get_tokens_for_user(management_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
+    sales_contact = CustomUser.objects.create_user(email='p.bleu@example.com',
+                                                   first_name='Pierre',
+                                                   last_name='Bleu',
+                                                   role='sale',
+                                                   password='test_password')
     data = {'first_name': 'Pascal',
             'last_name': 'Martin',
             'email': 'p.martin@intel.com',
             'phone': '1234567890',
             'mobile': '0987654321',
             'company_name': 'Intel.',
-            'sales_contact': 2}
+            'sales_contact': sales_contact.id}
 
     response = client.post('/customers/', data=data)
-    print(response.request)
     assert response.status_code == status.HTTP_201_CREATED
-
 
 
 @pytest.mark.django_db
@@ -73,7 +80,7 @@ def test_create_user_with_support_user(client, support_user):
 
 
 @pytest.mark.django_db
-def test_create_user_with_sale_user(client, sale_user):
+def test_update_user_with_sale_user(client, sale_user):
     refresh_token = get_tokens_for_user(sale_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
@@ -83,14 +90,15 @@ def test_create_user_with_sale_user(client, sale_user):
             'phone': '1234567890',
             'mobile': '0987654321',
             'company_name': 'Intel.',
-            'sales_contact': 1}
+            'sales_contact': sale_user.id}
 
-    client.post('/customers/', data=data)
+    response = client.post('/customers/', data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+    costumer_id = response.data['id']
 
     data_update = {'first_name': 'Pascaline'}
 
-    response = client.patch('/customers/1/', data=data_update)
-
+    response = client.patch(f'/customers/{costumer_id}/', data=data_update)
     assert response.status_code == status.HTTP_200_OK
 
     customer = Customer.objects.get(email=data['email'])
@@ -102,21 +110,28 @@ def test_update_customer_with_sale_user_but_is_not_sale_contact(client, sale_use
     refresh_token = get_tokens_for_user(sale_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
+    sales_contact = CustomUser.objects.create_user(email='p.rose@example.com',
+                                                   first_name='Pierre',
+                                                   last_name='rose',
+                                                   role='sale',
+                                                   password='test_password')
     data = {'first_name': 'Pascal',
             'last_name': 'Martin',
             'email': 'p.martin@intel.com',
             'phone': '1234567890',
             'mobile': '0987654321',
             'company_name': 'Intel.',
-            'sales_contact': 2}
+            'sales_contact': sales_contact.id}
 
-    client.post('/customers/', data=data)
+    response = client.post('/customers/', data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+    costumer_id = response.data['id']
 
     data_update = {'first_name': 'Pascaline'}
 
-    response = client.patch('/customers/1/', data=data_update)
+    response = client.patch(f'/customers/{costumer_id}/', data=data_update)
 
-    assert response.status_code == status.HTTP_404_NOT_FOUND
+    assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
 @pytest.mark.django_db
@@ -130,30 +145,42 @@ def test_delete_customer_with_sale_user(client, sale_user):
             'phone': '1234567890',
             'mobile': '0987654321',
             'company_name': 'Intel.',
-            'sales_contact': 1}
+            'sales_contact': sale_user.id}
 
-    client.post('/customers/', data=data)
+    response = client.post('/customers/', data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+    costumer_id = response.data['id']
 
-    response = client.delete('/customers/1/')
+    response = client.delete(f'/customers/{costumer_id}/')
 
     assert response.status_code == status.HTTP_403_FORBIDDEN
 
 
 @pytest.mark.django_db
-def test_delete_customer_with_management_user(client, management_user, sale_user):
+def test_delete_customer_with_management_user(client, management_user):
     refresh_token = get_tokens_for_user(management_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
+    sales_contact = CustomUser.objects.create_user(email='p.bleu@example.com',
+                                                   first_name='Pierre',
+                                                   last_name='Bleu',
+                                                   role='sale',
+                                                   password='test_password')
     data = {'first_name': 'Pascal',
             'last_name': 'Martin',
             'email': 'p.martin@intel.com',
             'phone': '1234567890',
             'mobile': '0987654321',
             'company_name': 'Intel.',
-            'sales_contact': 2}
+            'sales_contact': sales_contact.id}
 
-    client.post('/customers/', data=data)
+    response = client.post('/customers/', data=data)
+    assert response.status_code == status.HTTP_201_CREATED
+    costumer_id = response.data['id']
 
-    response = client.delete('/customers/1/')
+    response = client.delete(f'/customers/{costumer_id}/')
 
     assert response.status_code == status.HTTP_204_NO_CONTENT
+
+
+

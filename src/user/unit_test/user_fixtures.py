@@ -10,6 +10,17 @@ def client():
 
 
 @pytest.fixture
+def user_data():
+    return {
+        'email': 'p.laroche@example.com',
+        'first_name': 'Paul',
+        'last_name': 'Laroche',
+        'role': 'sale',
+        'password': 'test_password',
+    }
+
+
+@pytest.fixture
 def superuser_data():
     return {
         'email': 'r.lapierre@example.com',
