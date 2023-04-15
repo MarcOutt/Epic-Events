@@ -13,13 +13,14 @@ def test_get_customers(client, sale_user):
     assert response.status_code == status.HTTP_200_OK
 
 
-def test_delete_customer_with_sale_user(client, sale_user):
+@pytest.mark.django_db
+def test_create_customer_with_sale_user(client, sale_user):
     refresh_token = get_tokens_for_user(sale_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
-    sales_contact = CustomUser.objects.create_user(email='p.bleu@example.com',
+    sales_contact = CustomUser.objects.create_user(email='p.blanche@example.com',
                                                    first_name='Pierre',
-                                                   last_name='Bleu',
+                                                   last_name='Blanche',
                                                    role='sale',
                                                    password='test_password')
     data = {'first_name': 'Pascal',

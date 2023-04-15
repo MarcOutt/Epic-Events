@@ -1,4 +1,5 @@
 import pytest
+from contract.models import Contract
 from customer.models import Customer
 from user.models import CustomUser
 
@@ -23,11 +24,15 @@ def test_create_customer():
         sales_contact=sales_contact
     )
 
-    # check if the customer was created with the correct attributes
-    assert customer.first_name == 'Pascal'
-    assert customer.last_name == 'Martin'
-    assert customer.email == 'p.martin@intel.com'
-    assert customer.phone == '1234567890'
-    assert customer.mobile == '0987654321'
-    assert customer.company_name == 'Intel'
-    assert customer.sales_contact == sales_contact
+    contract = Contract.objects.create(
+        sales_contact=sales_contact,
+        customer=customer,
+        status=True,
+        amount=350,
+        payment_due="2023-04-22T18:12:00Z"
+    )
+
+    assert contract.sales_contact == sales_contact
+    assert contract.customer == customer
+    assert contract.status == True
+    assert contract.payment_due == "2023-04-22T18:12:00Z"
