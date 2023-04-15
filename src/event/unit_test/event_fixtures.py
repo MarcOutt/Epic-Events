@@ -37,5 +37,5 @@ def support_user():
     return CustomUser.objects.create_user(email='p.laroche@example.com',
                                           first_name='Paul',
                                           last_name='Laroche',
-                                          role='sale',
+                                          role='support',
                                           password='test_password')

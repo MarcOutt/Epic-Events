@@ -52,7 +52,7 @@ def test_create_customer_with_sale_user(client, sale_user):
 
 
 @pytest.mark.django_db
-def test_update_customer_with_sale_user(client, sale_user):
+def test_update_contract_with_sale_user(client, sale_user):
     refresh_token = get_tokens_for_user(sale_user)
     client.credentials(HTTP_AUTHORIZATION=f'Bearer {refresh_token}')
 
