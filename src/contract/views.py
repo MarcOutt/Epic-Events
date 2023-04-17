@@ -2,7 +2,10 @@
 from contract.models import Contract
 from contract.serializers import ContractSerializer
 from crm.permissions import IsSale, IsSupport, IsManagement
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.shortcuts import get_object_or_404
+from event.models import Event
 from rest_framework import viewsets
 
 
@@ -39,3 +42,17 @@ class ContractViewSet(viewsets.ModelViewSet):
         else:
             raise ValueError("Vous n'avez pas les droits")
         return [permission() for permission in permission_classes]
+
+    @receiver(post_save, sender=Contract)
+    def create_event(sender, instance, **kwargs):
+        # sourcery skip: instance-method-first-arg-name
+        try:
+            event = Event.objects.get(contract=instance)
+        except Event.DoesNotExist:
+            Event.objects.create(
+                customer=instance.customer,
+                contract=instance,
+                event_ended=False,
+                attendees=0,
+                notes='',
+            )

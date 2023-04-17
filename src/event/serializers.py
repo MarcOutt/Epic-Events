@@ -26,6 +26,7 @@ class EventSerializer(serializers.ModelSerializer):
         instance.event_ended = validated_data.get('event_ended', instance.event_ended)
         instance.attendees = validated_data.get('attendees', instance.attendees)
         instance.event_date = validated_data.get('event_date', instance.event_date)
+        instance.update_date = validated_data.get('update_date', instance.update_date)
         instance.notes = validated_data.get('notes', instance.notes)
         instance.save()
         return instance

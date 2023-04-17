@@ -62,5 +62,5 @@ class CustomUser(AbstractBaseUser):
         return f"{self.last_name}"
 
     class Meta:
-        verbose_name = "Utilisateur"
+        verbose_name = "User"
 
