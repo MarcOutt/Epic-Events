@@ -5,7 +5,7 @@ from django.urls import path, include
 from event.views import EventViewSet
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from user.views import UserViewSet, LoginView
+from user.views import UserViewSet
 
 router = routers.SimpleRouter()
 router.register(r'users', UserViewSet, basename='user')

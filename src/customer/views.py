@@ -32,5 +32,3 @@ class CustomerViewSet(viewsets.ModelViewSet):
         else:
             raise ValueError("Vous n'avez pas les droits")
         return [permission() for permission in permission_classes]
-
-

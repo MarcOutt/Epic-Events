@@ -1,4 +1,3 @@
-
 from contract.models import Contract
 from contract.serializers import ContractSerializer
 from crm.permissions import IsSale, IsSupport, IsManagement
@@ -47,7 +46,7 @@ class ContractViewSet(viewsets.ModelViewSet):
     def create_event(sender, instance, **kwargs):
         # sourcery skip: instance-method-first-arg-name
         try:
-            event = Event.objects.get(contract=instance)
+            Event.objects.get(contract=instance)
         except Event.DoesNotExist:
             Event.objects.create(
                 customer=instance.customer,

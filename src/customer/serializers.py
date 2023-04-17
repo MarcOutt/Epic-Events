@@ -29,5 +29,3 @@ class CustomerSerializer(serializers.ModelSerializer):
         instance.sales_contact = validated_data.get('sales_contact', instance.sales_contact)
         instance.save()
         return instance
-
-

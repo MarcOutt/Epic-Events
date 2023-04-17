@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>user\unit_test\test_user_model.py - flake8 annotated source</title>
+      <meta http-equiv="Content-Type" value="text/html; charset=UTF-8">
+      <link rel="stylesheet" href="styles.css">
+   </head>
+   <body>
+      <div id="masthead" class="sev-1"></div>
+      <div id="page">
+         <h1>
+            <a href="user.unit_test.test_user_model.report.html">
+               <img src="back.svg" alt="&#x2B05;">
+               user\unit_test\test_user_model.py source
+            </a>
+         </h1>
+
+         <div id="doc">
+            <div id="l1"
+               class="code sev- "><tt><i>1</i> <span class="kn">import</span> <span class="nn">pytest</span></tt>
+            </div>
+            <div id="l2"
+               class="code sev- "><tt><i>2</i> <span class="kn">from</span> <span class="nn">user.models</span> <span class="kn">import</span> <span class="n">CustomUser</span></tt>
+            </div>
+            <div id="l3"
+               class="code sev-1  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-1">
+                        F401
+                     </span>
+                     'user_fixtures.user_data' imported but unused</li>
+               
+                  <li>
+                     <span class="count sev-1">
+                        F401
+                     </span>
+                     'user_fixtures.superuser_data' imported but unused</li>
+               
+               </ul><tt><i>3</i> <span class="kn">from</span> <span class="nn">user_fixtures</span> <span class="kn">import</span> <span class="n">user_data</span><span class="p">,</span> <span class="n">superuser_data</span></tt>
+            </div>
+            <div id="l4"
+               class="code sev- "><tt><i>4</i> &nbsp;</tt>
+            </div>
+            <div id="l5"
+               class="code sev- "><tt><i>5</i> &nbsp;</tt>
+            </div>
+            <div id="l6"
+               class="code sev- "><tt><i>6</i> <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span></tt>
+            </div>
+            <div id="l7"
+               class="code sev-1  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-1">
+                        F811
+                     </span>
+                     Redefinition of unused 'user_data' from line 3</li>
+               
+               </ul><tt><i>7</i> <span class="k">def</span> <span class="nf">test_create_user</span><span class="p">(</span><span class="n">user_data</span><span class="p">):</span></tt>
+            </div>
+            <div id="l8"
+               class="code sev- "><tt><i>8</i>     <span class="n">user</span> <span class="o">=</span> <span class="n">CustomUser</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_user</span><span class="p">(</span><span class="o">**</span><span class="n">user_data</span><span class="p">)</span></tt>
+            </div>
+            <div id="l9"
+               class="code sev- "><tt><i>9</i>     <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="s1">&#39;p.laroche@example.com&#39;</span></tt>
+            </div>
+            <div id="l10"
+               class="code sev- "><tt><i>10</i>     <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">first_name</span> <span class="o">==</span> <span class="s1">&#39;Paul&#39;</span></tt>
+            </div>
+            <div id="l11"
+               class="code sev- "><tt><i>11</i>     <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">last_name</span> <span class="o">==</span> <span class="s1">&#39;Laroche&#39;</span></tt>
+            </div>
+            <div id="l12"
+               class="code sev- "><tt><i>12</i>     <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">role</span> <span class="o">==</span> <span class="s1">&#39;sale&#39;</span></tt>
+            </div>
+            <div id="l13"
+               class="code sev- "><tt><i>13</i>     <span class="k">assert</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="s1">&#39;test_password&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l14"
+               class="code sev- "><tt><i>14</i> &nbsp;</tt>
+            </div>
+            <div id="l15"
+               class="code sev- "><tt><i>15</i> &nbsp;</tt>
+            </div>
+            <div id="l16"
+               class="code sev- "><tt><i>16</i> <span class="nd">@pytest</span><span class="o">.</span><span class="n">mark</span><span class="o">.</span><span class="n">django_db</span></tt>
+            </div>
+            <div id="l17"
+               class="code sev-1  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-1">
+                        F811
+                     </span>
+                     Redefinition of unused 'superuser_data' from line 3</li>
+               
+               </ul><tt><i>17</i> <span class="k">def</span> <span class="nf">test_create_superuser</span><span class="p">(</span><span class="n">superuser_data</span><span class="p">):</span></tt>
+            </div>
+            <div id="l18"
+               class="code sev- "><tt><i>18</i>     <span class="n">superuser</span> <span class="o">=</span> <span class="n">CustomUser</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create_superuser</span><span class="p">(</span><span class="o">**</span><span class="n">superuser_data</span><span class="p">)</span></tt>
+            </div>
+            <div id="l19"
+               class="code sev- "><tt><i>19</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">email</span> <span class="o">==</span> <span class="s1">&#39;r.lapierre@example.com&#39;</span></tt>
+            </div>
+            <div id="l20"
+               class="code sev- "><tt><i>20</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">first_name</span> <span class="o">==</span> <span class="s1">&#39;Robert&#39;</span></tt>
+            </div>
+            <div id="l21"
+               class="code sev- "><tt><i>21</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">last_name</span> <span class="o">==</span> <span class="s1">&#39;Lapierre&#39;</span></tt>
+            </div>
+            <div id="l22"
+               class="code sev- "><tt><i>22</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">role</span> <span class="o">==</span> <span class="s1">&#39;management&#39;</span></tt>
+            </div>
+            <div id="l23"
+               class="code sev- "><tt><i>23</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="s1">&#39;test_password&#39;</span><span class="p">)</span></tt>
+            </div>
+            <div id="l24"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E712
+                     </span>
+                     Comparison to True should be 'if cond is True:' or 'if cond:'</li>
+               
+               </ul><tt><i>24</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">is_staff</span> <span class="o">==</span> <span class="kc">True</span></tt>
+            </div>
+            <div id="l25"
+               class="code sev-2  le">
+               <ul class="violations">
+               
+                  <li>
+                     <span class="count sev-2">
+                        E712
+                     </span>
+                     Comparison to True should be 'if cond is True:' or 'if cond:'</li>
+               
+               </ul><tt><i>25</i>     <span class="k">assert</span> <span class="n">superuser</span><span class="o">.</span><span class="n">is_admin</span> <span class="o">==</span> <span class="kc">True</span></tt>
+            </div>
+            
+         </div>
+      </div>
+   </body>
+</html>

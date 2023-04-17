@@ -28,4 +28,3 @@ class UserViewSet(viewsets.ModelViewSet):
     permission_classes = [IsManagement]
     serializer_class = UserSerializer
     queryset = CustomUser.objects.all()
-
