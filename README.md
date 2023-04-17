@@ -112,6 +112,12 @@ francois.laporte@example.com
 Vous trouverez ci-dessous le lien vers la documentation de l'API:
 https://documenter.getpostman.com/view/23302485/2s93XwyPHZ
 
+
+## RAPPORT DE TEST
+-------------------
+Les tests concernant les fonctionnalités de l'application ont été réalisé avec pytest, la couverture de test est de 98 %.
+Le rapport des tests peut être trouvé dans le fichier coverage.
+
 ## RAPPORT FLAKE8
 -------------------
 
