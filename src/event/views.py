@@ -30,9 +30,7 @@ class EventViewSet(viewsets.ModelViewSet):
             permission_classes = [IsManagement]
             if self.get_object().support_contact == self.request.user:
                 permission_classes = [IsSupport | IsManagement]
-        elif self.action == 'create':
-            permission_classes = [IsManagement | IsSale]
-        elif self.action == 'destroy':
+        elif self.action in ['create', 'destroy']:
             permission_classes = [IsManagement]
         else:
             raise ValueError("Vous n'avez pas les droits")
