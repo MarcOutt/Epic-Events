@@ -2,13 +2,18 @@ from crm.permissions import IsSale, IsManagement, IsSupport
 from customer.models import Customer
 from customer.serializers import CustomerSerializer
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
 
 
 class CustomerViewSet(viewsets.ModelViewSet):
     """A viewset that provides CRUD operations for customer."""
     serializer_class = CustomerSerializer
     queryset = Customer.objects.all()
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filter_fields = ['sales_contact']
+    search_fields = ['company_name', 'first_name', 'last_name']
 
     def get_object(self):
         queryset = self.get_queryset()

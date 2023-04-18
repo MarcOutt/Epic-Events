@@ -1,13 +1,18 @@
 from crm.permissions import IsManagement, IsSale, IsSupport
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from event.models import Event
 from event.serializers import EventSerializer
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
 
 
 class EventViewSet(viewsets.ModelViewSet):
     """A viewset that provides CRUD operations for event."""
     serializer_class = EventSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filter_fields = ['event_ended', 'support_contact']
+    search_fields = ['customer__last_name', 'customer__company_name', 'support_contact__last_name']
 
     def get_queryset(self):
         queryset = Event.objects.all()

@@ -4,13 +4,18 @@ from crm.permissions import IsSale, IsSupport, IsManagement
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.shortcuts import get_object_or_404
+from django_filters.rest_framework import DjangoFilterBackend
 from event.models import Event
 from rest_framework import viewsets
+from rest_framework.filters import SearchFilter
 
 
 class ContractViewSet(viewsets.ModelViewSet):
     """A viewset that provides CRUD operations for contract."""
     serializer_class = ContractSerializer
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filter_fields = ['customer', 'sales_contact', 'status']
+    search_fields = ['customer__last_name', 'sales_contact__last_name', 'sales_contact__first_name', 'status']
 
     def get_queryset(self):
         queryset = Contract.objects.all()
