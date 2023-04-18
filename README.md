@@ -26,7 +26,9 @@ Fonctionnalités de haut niveau requises :
 * Pouvoir stocker les informations sur les nouveaux contrats signés par les clients existants pour un événement.
 * Créer de nouveaux événements (une fois qu'un client signe un contrat).
 * Actualiser les informations sur l'événement lorsque cela est nécessaire, jusqu'au terme de ce dernier.
-* Pouvoir créer des utilisateurs pour nos équipes de vente et de support, en restreignant leur accès à certaines données.
+* Tous les membres de l'équipe de management doivent : 
+   * Créer, mettre à jour et supprimer des utilisateurs dans le système CRM, en restreignant leur accès à certaines données.
+   * Afficher et modifier toutes les données dans le système CRM
 * Tous les membres de l'équipe de vente doivent avoir :
     * Un accès en lecture seule à tous les clients, contrats ou événements.
     * Un droit de modification/d'accès pour tous les clients dont ils sont responsables, ainsi que pour leurs contrats et événements.
@@ -72,10 +74,10 @@ python manage.py runserver
 ```
 
 Afin de tester les différentes fonctionalités du site, 3 comptes utilisateurs ont été créés : 
-Identifiant                    mot de passe          role
-admin@ee.com                     admin            management
-paul.cour@example.com
-francois.laporte@example.com  
+Identifiant                   mot de passe     role
+r.lapierre@ee.com             test_password     management
+p.delacour@ee.com             test_password     sale
+p.laroche@ee.com              test_password     support
 
 
 # POINT DE TERMINAISON D'API  MÉTHODE HTTP  
@@ -115,7 +117,7 @@ https://documenter.getpostman.com/view/23302485/2s93XwyPHZ
 
 ## RAPPORT DE TEST
 -------------------
-Les tests concernant les fonctionnalités de l'application ont été réalisé avec pytest, la couverture de test est de 98 %.
+Les tests concernant les fonctionnalités de l'application ont été réalisé avec pytest, la couverture de test est de 93 %.
 Le rapport des tests peut être trouvé dans le fichier coverage.
 
 ## RAPPORT FLAKE8
@@ -126,7 +128,7 @@ Le rapport des tests peut être trouvé dans le fichier coverage.
 * Rentrer le code suivant:
 
 ```bash
-flake8 --exclude=.env/ --max-line-length=119 --format=html --htmldir=flake8-rapport
+flake8 --exclude=.env/,unit_test,migrations,htmlcov,create_user.py  --max-line-length=119 --format=html --htmldir=flake8-rapport
 ``` 
 
 * Aller dans le dossier flake8-rapport
