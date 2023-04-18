@@ -80,7 +80,8 @@ p.delacour@ee.com             test_password     sale
 p.laroche@ee.com              test_password     support
 
 
-## POINT DE TERMINAISON D'API  MÉTHODE HTTP  
+## POINT DE TERMINAISON D'API  MÉTHODE HTTP 
+-------------------------------------------
 
 1. Création d'utilisateur POST http://127.0.0.1:8000//users/
 2. Récupérer la liste de tous les utilisateurs GET http://127.0.0.1:8000//users/
