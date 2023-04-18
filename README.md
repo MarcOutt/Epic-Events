@@ -128,7 +128,7 @@ Le rapport des tests peut être trouvé dans le fichier coverage.
 * Rentrer le code suivant:
 
 ```bash
-flake8 --exclude=.env/,unit_test,migrations,htmlcov,createuser.py  --max-line-length=119 --format=html --htmldir=flake8-rapport
+flake8 --exclude=.env/,unit_test,migrations,htmlcov,create_user.py  --max-line-length=119 --format=html --htmldir=flake8-rapport
 ``` 
 
 * Aller dans le dossier flake8-rapport
