@@ -2,6 +2,7 @@
 # Développez une architecture back-end sécurisée en utilisant Django ORM
 -------------------------------------------------------------------
 
+
 ## TABLE DES MATIERES
 ---------------------
 
@@ -12,6 +13,7 @@
 * Documentation API
 * Rapport de test
 * Rapport Flake8
+
 
 ## INTRODUCTION
 ----------------
@@ -74,10 +76,9 @@ python manage.py runserver
 ```
 
 Afin de tester les différentes fonctionalités du site, 3 comptes utilisateurs ont été créés : 
-Identifiant                   mot de passe     role  
-r.lapierre@ee.com             test_password     management  
-p.delacour@ee.com             test_password     sale  
-p.laroche@ee.com              test_password     support  
+* Identifiant: r.lapierre@ee.com / mot de passe: test_password rôle: management  
+* Identifiant: p.delacour@ee.com / mot de passe: test_password rôle: sale  
+* Identifiant: p.laroche@ee.com / mot de passe: test_password rôle: support  
 
 
 ## POINT DE TERMINAISON D'API  MÉTHODE HTTP 
@@ -118,8 +119,10 @@ https://documenter.getpostman.com/view/23302485/2s93XwyPHZ
 
 ## RAPPORT DE TEST
 -------------------
+
 Les tests concernant les fonctionnalités de l'application ont été réalisé avec pytest, la couverture de test est de 93 %.
 Le rapport des tests peut être trouvé dans le fichier coverage.
+
 
 ## RAPPORT FLAKE8
 -------------------
