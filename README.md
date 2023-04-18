@@ -48,7 +48,7 @@ Fonctionnalités de haut niveau requises :
 
 ### 1. Télécharger le projet sur votre répertoire local : 
 ```
-git clone https://github.com/MarcOutt/Python_Testing.git
+git clone https://github.com/MarcOutt/OC_p12.git
 ```
 ### 2. Mettre en place un environnement virtuel :
 * Créer l'environnement virtuel: `python -m venv venv`
