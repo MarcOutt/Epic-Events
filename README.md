@@ -76,9 +76,9 @@ python manage.py runserver
 ```
 
 Afin de tester les différentes fonctionalités du site, 3 comptes utilisateurs ont été créés : 
-* Identifiant: r.lapierre@ee.com / mot de passe: test_password rôle: management  
-* Identifiant: p.delacour@ee.com / mot de passe: test_password rôle: sale  
-* Identifiant: p.laroche@ee.com / mot de passe: test_password rôle: support  
+* Identifiant: r.lapierre@ee.com ; mot de passe: test_password ; rôle: management  
+* Identifiant: p.delacour@ee.com ; mot de passe: test_password ; rôle: sale  
+* Identifiant: p.laroche@ee.com ; mot de passe: test_password ; rôle: support  
 
 
 ## POINT DE TERMINAISON D'API  MÉTHODE HTTP 
