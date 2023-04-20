@@ -80,6 +80,10 @@ Afin de tester les différentes fonctionalités du site, 3 comptes utilisateurs 
 * Identifiant: p.delacour@ee.com ; mot de passe: test_password ; rôle: sale  
 * Identifiant: p.laroche@ee.com ; mot de passe: test_password ; rôle: support  
 
+Panel d'administration
+Aller sur http://localhost:8000/admin
+Connectez-vous avec l'utilisateur: r.lapierre@ee.com ; mot de passe: test_password.
+
 
 ## POINT DE TERMINAISON D'API  MÉTHODE HTTP 
 -------------------------------------------
