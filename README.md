@@ -1,4 +1,9 @@
-[![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
+![image](https://github.com/MarcOutt/OC_p10/assets/112987151/2a0b87b9-46d3-4135-a890-e8b52cd4c8ee)
+![image](https://github.com/MarcOutt/OC_p10/assets/112987151/ddc0679e-fabc-4655-804b-351da4c3433c)
+![image](https://github.com/MarcOutt/OC_p10/assets/112987151/7f67349d-b8ef-4f92-a400-5c839b150ff1)
+![image](https://github.com/MarcOutt/OC_p10/assets/112987151/f0c03fa1-66b8-4dc6-b701-d85aabf8331d)
+![image](https://github.com/MarcOutt/OC_p12/assets/112987151/34ee89b0-2fd4-451e-8050-724588bd58a7)
+
 # Développez une architecture back-end sécurisée en utilisant Django ORM
 -------------------------------------------------------------------
 
