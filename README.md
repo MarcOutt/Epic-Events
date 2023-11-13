@@ -58,7 +58,7 @@ Fonctionnalités de haut niveau requises :
 
 ### 1. Télécharger le projet sur votre répertoire local : 
 ```
-git clone https://github.com/MarcOutt/OC_p12.git
+git clone https://github.com/MarcOutt/Epic-Events.git
 ```
 ### 2. Mettre en place un environnement virtuel :
 * Créer l'environnement virtuel: `python -m venv venv`
